@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+*:root {
+    --bg: #f5f5f5;
+    --main: #f0f0f0;
+    --text-main: #3e4044;
+    --text-secondary: #75787c;
+    --accent-gradient: linear-gradient(45deg, #7dbd83 0%, #1ba4a3 100%);
+    --accent-gradient-rev: linear-gradient(-45deg, #7dbd83 0%, #1ba4a3 100%);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input,
+button,
+a {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    outline: none;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+html,
+body {
+    min-height: 100vh;
+    color: var(--text-main);
+}
+
+body {
+    display: grid;
+    grid-template: 1fr max-content / 1fr;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    background-color: var(--bg);
+}
+
+.main {
+    max-width: 57.5rem;
+    width: 100%;
+    padding: 3.75rem 3.75rem 0;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.app-desc {
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.app-title {
+    padding-bottom: 0.5rem;
+    text-align: center;
+    line-height: 1.2;
+    background: var(--accent-gradient-rev);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.eq-solving {
+    padding: 4rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    border-radius: 1rem;
+    background-color: var(--main);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.form {
+    flex: 1 1 14rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.formula {
+    font-weight: 700;
+}
+
+.form-inputs {
+    display: flex;
+    gap: 1rem;
+}
+
+.labels,
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.label {
+    white-space: nowrap;
+}
+
+.input {
+    width: 100%;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(230, 230, 230);
+    background-color: #fcfcfc;
+    transition: all 200ms ease-in;
+}
+
+.input:focus-visible,
+.calc-btn:focus-visible {
+    border-color: transparent;
+    box-shadow: #1ba4a3 0px 0px 0px 2px;
+}
+
+.input:not(:placeholder-shown):not(:focus):invalid {
+    color: #ff0000;
+    border-color: transparent;
+    box-shadow: #ff0000 0px 0px 0px 2px;
+}
+
+.input:not(:placeholder-shown):not(:focus):invalid + .error-message {
+    visibility: visible;
+    opacity: 1;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.error-message {
+    visibility: hidden;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    top: -3.3rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 1rem;
+    white-space: nowrap;
+    color: var(--bg);
+    background-color: var(--text-secondary);
+    border-radius: 0.5rem;
+    z-index: 2;
+    opacity: 0;
+    transition: all 200ms ease-in;
+}
+
+.error-message::before {
+    content: '';
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    bottom: -0.5rem;
+    left: calc(50% - 0.5rem);
+    rotate: 45deg;
+    transform-origin: center;
+    background-color: var(--text-secondary);
+}
+
+.calc-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 0.5rem 2rem;
+    color: var(--bg);
+    border-radius: 0.5rem;
+    background: var(--accent-gradient);
+}
+
+.calc-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.calc-btn::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: var(--accent-gradient-rev);
+    opacity: 0;
+    transition: all 300ms ease-in;
+}
+
+.calc-btn:hover:before {
+    opacity: 1;
+}
+
+.answer {
+    padding: 0.5rem 1rem 1rem;
+    flex: 1 1 50%;
+    border-radius: 0.5rem;
+    border: 2px dashed var(--text-secondary);
+}
+
+.answer-title {
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.footer {
+    padding: 2rem;
+    text-align: center;
+}
+
+.github-link {
+    display: block;
+    font-size: 2rem;
+    background: var(--accent-gradient-rev);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.github-link:focus-visible > i {
+    border-radius: 50%;
+    box-shadow: #1ba4a3 0px 0px 0px 1px inset, #1ba4a3 0px 0px 0px 2px;
+}
+
+@media (max-width: 37.5em) {
+    .main {
+        padding: 3rem 1.5rem 0;
+    }
+
+    .app-title {
+        font-size: 2rem;
+    }
+
+    .eq-solving {
+        padding: 2rem;
+    }
+}
