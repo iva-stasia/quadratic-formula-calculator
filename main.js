@@ -7,11 +7,11 @@ function showAInFormula(value) {
     a.innerHTML = value != '' && !isNaN(value) ? value : 'a';
 }
 
-function showOtherThanAInFormula(value, id) {
+function showOtherThanAInFormula(value, id, coefficient) {
     const a = document.querySelector(`[data-id="${id}"]`);
     const operator = document.querySelector(`[data-operator="${id}"]`);
 
-    a.innerHTML = value != '' && !isNaN(value) ? Math.abs(value) : 'a';
+    a.innerHTML = value != '' && !isNaN(value) ? Math.abs(value) : coefficient;
     operator.innerHTML = value < 0 ? '-' : '+';
 }
 
@@ -55,7 +55,7 @@ inputsContainer.addEventListener('input', ({ target }) => {
     if (target.id == 'coef-a') {
         showAInFormula(target.value);
     } else {
-        showOtherThanAInFormula(target.value, target.id);
+        showOtherThanAInFormula(target.value, target.id, target.dataset.coef);
     }
 });
 
