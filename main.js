@@ -8,10 +8,11 @@ function showAInFormula(value) {
 }
 
 function showOtherThanAInFormula(value, id, coefficient) {
-    const a = document.querySelector(`[data-id="${id}"]`);
+    const currentCoef = document.querySelector(`[data-id="${id}"]`);
     const operator = document.querySelector(`[data-operator="${id}"]`);
 
-    a.innerHTML = value != '' && !isNaN(value) ? Math.abs(value) : coefficient;
+    currentCoef.innerHTML =
+        value != '' && !isNaN(value) ? Math.abs(value) : coefficient;
     operator.innerHTML = value < 0 ? '-' : '+';
 }
 
