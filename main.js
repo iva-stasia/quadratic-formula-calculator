@@ -2,22 +2,17 @@ const inputsContainer = document.querySelector('.inputs');
 const form = document.querySelector('.form');
 const answerField = document.querySelector('.answer-text');
 
-function showCoefficientInFormula(input) {
-    const currentCoef = document.querySelector(`[data-id="${input.id}"]`);
-    const value =
-        input.value != '' && !isNaN(input.value)
-            ? input.value
-            : input.dataset.coef;
+function showAInFormula(value) {
+    const a = document.querySelector('[data-id="coef-a"]');
+    a.innerHTML = value != '' && !isNaN(value) ? value : 'a';
+}
 
-    if (currentCoef.dataset.id != 'coef-a') {
-        document.querySelector(`[data-operator="${input.id}"]`).innerHTML =
-            input.value < 0 ? '-' : '+';
-        currentCoef.innerHTML = !isNaN(value)
-            ? Math.abs(value)
-            : input.dataset.coef;
-    } else {
-        currentCoef.innerHTML = value;
-    }
+function showOtherThanAInFormula(value, id) {
+    const a = document.querySelector(`[data-id="${id}"]`);
+    const operator = document.querySelector(`[data-operator="${id}"]`);
+
+    a.innerHTML = value != '' && !isNaN(value) ? Math.abs(value) : 'a';
+    operator.innerHTML = value < 0 ? '-' : '+';
 }
 
 function solveEquation(a, b, c) {
@@ -57,7 +52,11 @@ function clearInputs() {
 window.addEventListener('DOMContentLoaded', clearInputs);
 
 inputsContainer.addEventListener('input', ({ target }) => {
-    showCoefficientInFormula(target);
+    if (target.id == 'coef-a') {
+        showAInFormula(target.value);
+    } else {
+        showOtherThanAInFormula(target.value, target.id);
+    }
 });
 
 form.addEventListener('submit', (e) => {
