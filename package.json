@@ -1,0 +1,21 @@
+{
+  "name": "quadratic-formula-calculator",
+  "version": "1.0.0",
+  "description": "An application for solving a quadratic equation.",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "start": "lite-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "quadratic-roots-function": "^1.0.1"
+  }
+}
