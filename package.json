@@ -5,12 +5,19 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "lite-server"
+    "start": "lite-server",
+    "check": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
     "lite-server": "^2.6.1",
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1"
